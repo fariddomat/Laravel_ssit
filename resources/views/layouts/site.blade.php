@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Document Title -->
-    <title>VPNet</title>
+    <link rel="icon" href="{{ asset($info->logo) }}" type="image/png" sizes="16x16">
+    <title> @yield('title')</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ $info->description }}">
+    <meta name="keywords" content="Buisness Secrets">
+    <meta name="author" content="">
+
+    <link href="{{ asset($info->logo) }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset($info->logo) }}" rel="apple-touch-icon">
+    <link href="{{ asset($info->logo) }}" rel="apple-touch-icon" sizes="72x72">
+    <link href="{{ asset($info->logo) }}" rel="apple-touch-icon" sizes="114x114">
+    <link href="{{ asset($info->logo) }}" rel="apple-touch-icon" sizes="144x144">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -661,5 +673,7 @@
     <script src="{{ asset('home/js/menu.min.js') }}"></script>
     <script src="{{ asset('home/js/scripts.js') }}"></script>
     <script src="{{ asset('home/js/custom.js') }}"></script>
+
+    @yield('scripts')
 </body>
 </html>

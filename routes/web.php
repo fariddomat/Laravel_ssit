@@ -68,6 +68,15 @@ Route::get('/sitemap.xml', 'SitemapXmlController@index')->name('sitemap');
 
 Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', 'setArLocale'], 'as' => 'dashboard.'], function () {
     Route::get('/home', 'Dashboard\DashboardController@home')->name('home');
+
+    Route::resource('package_categories','Dashboard\PackageCategoryController');
+    Route::resource('packages','Dashboard\PackageController');
+    Route::resource('package_services','Dashboard\PackageServiceController')->except(['index', 'create', 'edit']);
+
+    Route::get('/package_services/{service}', 'Dashboard\PackageServiceController@index')->name('package_services.index');
+    Route::get('/package_services/{service}/create', 'Dashboard\PackageServiceController@create')->name('package_services.create');
+    Route::get('/package_services/{service}/edit', 'Dashboard\PackageServiceController@edit')->name('package_services.edit');
+
     Route::get('/services/{service}/edit', 'Dashboard\ServiceController@edit')->name('services.edit');
     Route::get('/services', 'Dashboard\ServiceController@index')->name('services.index');
     Route::get('/services/create', 'Dashboard\ServiceController@create')->name('services.create');

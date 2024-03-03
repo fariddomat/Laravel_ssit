@@ -33,11 +33,11 @@ class HomeInfoController extends Controller
             'contact_header_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'blog_header_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
 
-            'en.title' => ['required'],
-            'en.description' => ['required'],
-            'en.work' => ['required'],
-            'en.work_description' => ['required'],
-            'about_me_image_en' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
+            // 'en.title' => ['required'],
+            // 'en.description' => ['required'],
+            // 'en.work' => ['required'],
+            // 'en.work_description' => ['required'],
+            // 'about_me_image_en' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
         ];
         $validatedData = $request->validate($rules);
 
