@@ -61,11 +61,11 @@
                 <div class="col-11">
                     <div class="page-title position-relative pt-5 pb-5">
                         <ul class="custom-breadcrumb roboto list-unstyled mb-0 clearfix" data-animate="fadeInUp" data-delay="1.2">
-                            <li><a href="home.html">Home</a></li>
+                            <li><a href="{{ route('home') }}">@lang('site.home')</a></li>
                             <li><i class="fas fa-angle-double-right"></i></li>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">>@lang('site.about')</a></li>
                         </ul>
-                        <h1 data-animate="fadeInUp" data-delay="1.3">About Us</h1>
+                        <h1 data-animate="fadeInUp" data-delay="1.3">@lang('site.about')</h1>
                     </div>
                 </div>
                 <div class="col-1">
@@ -84,28 +84,28 @@
             <div class="row justify-content-center">
                 <div class="col-md-11">
                     <div class="about-us-title text-center">
-                        <h2 data-animate="fadeInUp" data-delay=".1">Welcome to VPNet</h2>
-                        <p data-animate="fadeInUp" data-delay=".2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        <h2 data-animate="fadeInUp" data-delay=".1">@lang('about.who')</h2>
+                        <p data-animate="fadeInUp" data-delay=".2"> {!! $about->who_are_we !!}</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-about-us-info" data-animate="fadeInUp" data-delay=".1">
-                        <h3>Who we are?</h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus ui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati piditate non provident, similique sunt in culpa qui officia deserunt illitia imi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                        <h3>@lang('about.history')</h3>
+                        <p> {!! $about->history !!}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-about-us-info" data-animate="fadeInUp" data-delay=".2">
-                        <h3>Our mission</h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus ui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati piditate non provident, similique sunt in culpa qui officia deserunt illitia imi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                        <h3>@lang('about.massage')</h3>
+                        <p> {!! $about->massage !!}</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="single-about-us-info" data-animate="fadeInUp" data-delay=".3">
-                        <h3>Our vision</h3>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus ui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati piditate non provident, similique sunt in culpa qui officia deserunt illitia imi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                        <h3>@lang('about.vision')</h3>
+                        <p> {!! $about->vision !!}</p>
                     </div>
                 </div>
             </div>
@@ -113,9 +113,9 @@
             <div class="write-about-us text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <h2 data-animate="fadeInUp" data-delay=".1">Want To Write About VPNet?</h2>
-                        <p data-animate="fadeInUp" data-delay=".2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque  eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae</p>
-                        <a href="#" class="btn btn-primary" data-animate="fadeInUp" data-delay=".3">Contact With Us</a>
+                        <h2 data-animate="fadeInUp" data-delay=".1">@lang('contact.connect')</h2>
+                        {{-- <p data-animate="fadeInUp" data-delay=".2">@lang('contact.get_in_touch')</p> --}}
+                        <a href="{{ route('contact') }}" class="btn btn-primary" data-animate="fadeInUp" data-delay=".3">@lang('site.contact_us')</a>
                     </div>
                 </div>
             </div>
@@ -129,34 +129,15 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8 col-md-10">
                     <div class="section-title text-center">
-                        <h2 data-animate="fadeInUp" data-delay=".1">Our Team</h2>
-                        <p data-animate="fadeInUp" data-delay=".2">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        <h2 data-animate="fadeInUp" data-delay=".1">@lang('site.our_team')</h2>
+                        {{-- <p data-animate="fadeInUp" data-delay=".2">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p> --}}
                     </div>
                 </div>
             </div>
 
             <!-- Members -->
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay="0">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member1.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Vivian J. Rogers</h4>
-                            <span>Cheife Executive Officer (CEO)</span>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="single-member" data-animate="fadeInUp" data-delay=".1">
@@ -179,132 +160,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".2">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member3.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Larry W. Oliver</h4>
-                            <span>Managing Director</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".3">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member4.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Michelle R. Weiss</h4>
-                            <span>Production Manager</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".4">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member5.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Christine T. McCallister</h4>
-                            <span>Relationship Manager</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".5">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member6.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Leroy L. Bowen</h4>
-                            <span>Co-Founder Director</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".6">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member7.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Lee A. Funderburg</h4>
-                            <span>Junior Creative Director</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-member" data-animate="fadeInUp" data-delay=".7">
-                        <div class="image-hover-wrap">
-                            <img src="img/members/member8.jpg" alt="">
-                            <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
-                                <ul class="list-inline">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="single-member-info">
-                            <h4>Ricky M. Hallett</h4>
-                            <span>Senior Marketing Officer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End of Our team -->
@@ -349,43 +204,12 @@
     <section class="clients-wrap pt-4 pb-4">
         <div class="container">
             <ul class="our-clients list-unstyled d-md-flex align-items-md-center justify-content-md-between m-0">
+
                 <li data-animate="fadeInUp" data-delay=".1">
                     <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand1.png') }}"
                             alt=""></a>
                 </li>
-                <li data-animate="fadeInUp" data-delay=".2">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand2.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".3">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand3.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".4">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand4.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".5">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand5.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".6">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand6.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".7">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand7.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".8">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand8.png') }}"
-                            alt=""></a>
-                </li>
-                <li data-animate="fadeInUp" data-delay=".9">
-                    <a href="#" target="_blank"><img src="{{ asset('home/img/brands/brand9.png') }}"
-                            alt=""></a>
-                </li>
-            </ul>
+
         </div>
     </section>
     <!-- End of Our clients -->
