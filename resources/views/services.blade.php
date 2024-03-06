@@ -33,57 +33,61 @@
 @endsection
 @section('content')
 
-    <!-- Services Section -->
-
-    <!-- subheader -->
-    <section id="subheader" data-speed="8" data-type="background"
-        style="background: url({{ asset($info->service_image) }}) top; background-position: unset !important;
-        background-repeat: no-repeat !important; background-size: cover !important; ">
-        <div class="container-fluid">
-            <div class="row" style="border-radius: 0 0 15px 0px;">
-                <div class="col-md-12">
-                    <h1>@lang('site.services')</h1>
-                    <ul class="crumb">
+   <!-- Page title -->
+   <section class="page-title-wrap position-relative bg-light">
+    <div id="particles_js"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-11">
+                <div class="page-title position-relative pt-5 pb-5">
+                    <ul class="custom-breadcrumb roboto list-unstyled mb-0 clearfix" data-animate="fadeInUp" data-delay="1.2">
                         <li><a href="{{ route('home') }}">@lang('site.home')</a></li>
-                        <li class="sep">/</li>
-                        <li>@lang('site.services')</li>
+                        <li><i class="fas fa-angle-double-right"></i></li>
+                        <li><a href="#">@lang('site.services')</a></li>
                     </ul>
+                    <h1 data-animate="fadeInUp" data-delay="1.3">@lang('site.services')</h1>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="world-map position-relative">
+                    <img src="img/map.svg" alt="" alt="" data-no-retina class="svg">
                 </div>
             </div>
         </div>
-    </section>
-    <!-- subheader close -->
+    </div>
+</section>
+<!-- End of Banner -->
 
-    <div id="content" class="nopadding">
-        <section id="section-content">
-            <div class="container-fluid">
-                <div class="row">
-
-                    @foreach ($services as $index => $service)
-                        <div class="col-md-6 wow fadeIn service-item" data-wow-delay=".9s">
-                            <h3 style="height: 65px;"><span class="id-color stitle">{{ $service->title }}</span> </h3>
-                            <p style="height: 37px;">{{ Str::limit($service->brief, 140) }}</p>
-                            <div class="spacer-single"></div>
-                            <img src="{{ asset($service->image) }}" class="img-responsive" alt=""
-                            style="margin-top: 15px; border-radius: 15px 15px 15px 15px;">
-                            <div class="spacer-single"></div>
-                            <a href="{{ route('service', $service->slug) }}"
-                                class="btn-line btn-fullwidth btn-ho">@lang('site.read_more')</a>
-
-
+<!-- Service -->
+<section class="blog pt-7 pb-7">
+    <div class="container">
+        <!-- Posts -->
+        <div class="row">
+            @foreach ($services as $index=>$service)
+            <div class="col-lg-4 col-md-6">
+                <div class="single-post" data-animate="fadeInUp" data-delay="{{ .1+($index/10) }}">
+                    <div class="image-hover-wrap">
+                        <img src="{{ asset($service->img) }}" alt="">
+                        <div class="image-hover-content d-flex justify-content-center align-items-center text-center">
+                            <ul class="list-inline">
+                                <li><a href="{{ route('service', $service->slug) }}"><i class="fas fa-link"></i></a></li>
+                                {{-- <li><a href="#"><i class="fas fa-share-alt"></i></a></li> --}}
+                            </ul>
                         </div>
-                        @if ($index % 2 != 0)
-                            <div class="separator"><span><i class="fa fa-circle"></i></span></div>
-                            <div class="spacer-single"></div>
-                        @endif
-                    @endforeach
-
+                    </div>
+                    <h3>{{ $service->title }}</h3>
+                    <h4>{{ Str::limit($service->brief, 140) }}</h4>
+                    <a href="{{ route('service', $service->slug) }}">@lang('site.read_more')<i class="fas fa-caret-right"></i></a>
                 </div>
             </div>
-        </section>
+            @endforeach
 
+        </div>
+
+        <!-- Pagination -->
 
     </div>
-
+</section>
+<!-- End of Service -->
 
 @endsection

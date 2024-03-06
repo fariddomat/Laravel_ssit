@@ -2,182 +2,101 @@
 @section('title', trans('site.blogs'))
 @section('styles')
     <style>
-        .de-navbar-left section {
-            padding: 70px !important;
+        .de-navbar-left.de_light #subheader {
+            background-size: cover !important;
         }
 
-        .blog-list .btn-more {
-            color: #fff;
+        #subheader {
+            background-size: cover !important;
         }
 
-        .de_light .blog-list .date-box .day,
-        .de_light .blog-read .date-box .month {
-            color: #fff;
+        .stitle {
+            font-weight: bold;
+            font-size: 20px !important;
         }
-
-        .blog-list .date-box .day,
-        .blog-list .date-box .month {
-            width: 85px;
-            line-height: 32px;
-        }
-
-        .blog-list .post-text,
-        .blog-read .post-text {
-            padding-left: 100px;
-        }
-
-
-        .day {
-                font-size: 20px !important;
-            }
 
         @media screen and (max-width: 460px) {
-            #filters li {
-  display: flex;
-            }
-            h2{
-                text-align: initial;
-font-size: 1.5rem;
-            }
-            #section-portfolio {
-                padding: 70px 45px !important;
+            #section-content {
+                padding: 35px 25px 70px;
             }
 
-            #filters a {
-            background: none;
-            letter-spacing: 0;
-            }
-            #gallery .item {
-                padding: 0;
-                left: 0 !important;
+
+            .blog-item {
+                margin-top: 35px;
             }
 
-            .day {
-                font-size: 12px !important;
+            h3,
+            p {
+                height: auto !important;
             }
 
-            @if (app()->getLocale() == 'ar')
-            .post-text>h2 {
-                padding-right: 100px !important;
-            }
-            @else
-            .post-text>h2 {
-                padding-left: 100px !important;
-            }
-            @endif
-
-            .post-text {
-                padding-left: 0 !important;
-                padding-right: 0px !important;
-            }
         }
-
     </style>
 @endsection
 @section('content')
 
-    <!-- Blog -->
-    <!-- subheader -->
-    <section id="subheader" data-speed="8" data-type="background"
-        style="background: url({{ asset($info->blog_header_image) }})top fixed">
-        <div class="container-fluid">
+    <!-- Page title -->
+    <section class="page-title-wrap position-relative bg-light">
+        <div id="particles_js"></div>
+        <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h1>@lang('site.blog')</h1>
-                    <ul class="crumb">
-                        <li><a href="{{ route('home') }}">@lang('site.home')</a></li>
-                        <li class="sep">/</li>
-                        <li>@lang('site.blog')</li>
-                    </ul>
+                <div class="col-11">
+                    <div class="page-title position-relative pt-5 pb-5">
+                        <ul class="custom-breadcrumb roboto list-unstyled mb-0 clearfix" data-animate="fadeInUp"
+                            data-delay="1.2">
+                            <li><a href="{{ route('home') }}">@lang('site.home')</a></li>
+                            <li><i class="fas fa-angle-double-right"></i></li>
+                            <li><a href="#">@lang('site.blogs')</a></li>
+                        </ul>
+                        <h1 data-animate="fadeInUp" data-delay="1.3">@lang('site.blogs')</h1>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="world-map position-relative">
+                        <img src="img/map.svg" alt="" alt="" data-no-retina class="svg">>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- subheader close -->
-    <section id="section-portfolio" class="no-padding">
-        <div class="container-fluid">
+    <!-- End of Banner -->
 
-            <div class="spacer-single"></div>
-
-            <!-- portfolio filter begin -->
+    <!-- blog -->
+    <section class="blog pt-7 pb-7">
+        <div class="container">
+            <!-- Posts -->
             <div class="row">
-
-
-                <div class="col-md-12 text-center">
-                    <ul id="filters" class="wow fadeInUp" data-wow-delay="0s">
-                        <li><a href="#" data-filter="*" class="selected">@lang('site.blog')</a>
-                        </li>
-                        @foreach ($blogCategories as $category)
-                            <li><a href="#" data-filter=".{{ $category->id }}">{{ $category->name }}</a></li>
-                        @endforeach
-                    </ul>
-
-                </div>
-            </div>
-            <!-- portfolio filter close -->
-
-        </div>
-
-        <div id="gallery" class="row g-0 wow fadeInUp" data-wow-delay=".3s">
-            <div id="content" class="nopadding">
-                <section id="section-content">
-                    <ul class="blog-list">
-                        @foreach ($blogs as $blog)
-                            <!-- gallery item -->
-                            <div class="col-md-12 col-12 item {{ $blog->category->id }}">
-                                <li>
-                                    <div class="post-content">
-                                        <div class="post-image">
-                                            <img src="{{ asset($blog->image) }}" alt=""
-                                                style="border-radius: 15px 15px 0px 0px;" />
-                                        </div>
-
-
-                                        <div class="date-box">
-                                            <div class="day" style="border-radius: 0px 0px 15px 15px;">
-                                                {{ $blog->updated_at->format('d F
-                                                                                                                                                                                            Y') }}
-                                            </div>
-                                        </div>
-
-                                        <div class="post-text">
-                                            <h2><a href="{{ route('blog', $blog->slug) }}">{{ $blog->title }}</a></h2>
-
-                                            @php
-                                            /* $desc= preg_replace("/<img[^>]+\>/i", "", $blog->description); */
-                                            $desc= Str::limit(strip_tags($blog->description), 300 , ' ...');
-                                            @endphp
-                                            <p>{{ $desc }}</p>
-                                        </div>
-
-                                        <a href="{{ route('blog', $blog->slug) }}" class="btn-more">@lang('site.read_more')</a>
-                                    </div>
-                                </li>
-                                {{--
-                        <div class="de-post-poster" style="background-size: cover;">
-                            <a class="d-overlay" href="{{ route('blog', $blog->slug) }}">
-                                <div class="d-content" style="background-size: cover;">
-
-                                    <h3>{{ $blog->title }}</h3>
-                                    <span class="d-date">{{$blog->updated_at->format('d F
-                                        Y')}}</span>
+                @foreach ($blogs as $index => $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-post" data-animate="fadeInUp" data-delay="{{ 0.1 + $index / 10 }}">
+                            <div class="image-hover-wrap">
+                                <img src="{{ asset($blog->img) }}" alt="">
+                                <div
+                                    class="image-hover-content d-flex justify-content-center align-items-center text-center">
+                                    <ul class="list-inline">
+                                        <li><a href="{{ route('blog', $blog->slug) }}"><i class="fas fa-link"></i></a></li>
+                                        {{-- <li><a href="#"><i class="fas fa-share-alt"></i></a></li> --}}
+                                    </ul>
                                 </div>
-                            </a>
-                            <div class="d-image" data-bgimage="url({{asset($blog->image)}})" style="background: url({{asset($blog->image)}}&quot;) 0% 0% / cover;"></div>
-                        </div> --}}
-
-
                             </div>
-                            <!-- close gallery item -->
-                        @endforeach
-                    </ul>
-                </section>
+                            <span> {{ $blog->updated_at->format('d F Y') }}</span>
+                            <h3>{{ $blog->title }}</h3>
+                            @php
+                                $desc = Str::limit(strip_tags($blog->description), 300, ' ...');
+                            @endphp
+                            <h4>{{ $desc }}</h4>
+                            <a href="{{ route('blog', $blog->slug) }}">@lang('site.read_more')<i
+                                    class="fas fa-caret-right"></i></a>
+                        </div>
+                    </div>
+                @endforeach
+
             </div>
 
-        </div>
+            <!-- Pagination -->
 
-        <div id="loader-area">
-            <div class="project-load"></div>
         </div>
     </section>
+    <!-- End of Service -->
+
 @endsection

@@ -23,6 +23,7 @@ use App\GlobalSMS;
 use App\SMS;
 use App\Helpers\SMS as SMSHelper;
 use App\HomeSlider;
+use App\Packagee;
 use App\PartnerSlider;
 use App\Privacy;
 use App\SMSLog;
@@ -54,7 +55,8 @@ class SiteController extends Controller
         $homeSlider=HomeSlider::all();
         $experinceSlider=ExperinceSlider::all();
 
-        return view('home', compact('info', 'about', 'aboutFields', 'workCategories', 'works', 'clients', 'blogs', 'blogCategories', 'services', 'contactInfo', 'allServices', 'contactInfo', 'homeSlider', 'experinceSlider'));
+        $packages=Packagee::all();
+        return view('home', compact('info', 'about', 'aboutFields', 'workCategories', 'works', 'clients', 'blogs', 'blogCategories', 'services', 'contactInfo', 'allServices', 'contactInfo', 'homeSlider', 'experinceSlider', 'packages'));
     }
 
     public function about()

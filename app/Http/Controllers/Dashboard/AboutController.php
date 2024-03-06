@@ -53,7 +53,7 @@ class AboutController extends Controller
         $about->translateOrNew('ar')->history = $validatedData['ar']['history'];
         $about->translateOrNew('ar')->massage = $validatedData['ar']['massage'];
         $about->translateOrNew('ar')->goals = $validatedData['ar']['goals'];
-        $about->translateOrNew('en')->ambition = $validatedData['en']['ambition'];
+        $about->translateOrNew('ar')->ambition = $validatedData['ar']['ambition'];
         $about->translateOrNew('ar')->vision = $validatedData['ar']['vision'];
         $about->translateOrNew('ar')->values = $validatedData['ar']['values'];
 

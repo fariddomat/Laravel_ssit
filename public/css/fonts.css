@@ -1,4 +1,9 @@
 @font-face {
+    font-family: 'Cairo';
+    src: url("../fonts/Cairo/static/Cairo-Regular.ttf");
+  }
+
+@font-face {
   font-family: '29ltbukrabold';
   src: url("../editorFonts/29ltbukrabold.otf");
 }

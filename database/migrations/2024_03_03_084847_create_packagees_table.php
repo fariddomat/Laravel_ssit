@@ -17,6 +17,7 @@ class CreatePackageesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->string('name');
+            $table->text('img');
             $table->decimal('price', 10, 2);
 
             $table->timestamps();
